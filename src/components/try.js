@@ -15,7 +15,7 @@ import Fill from "ol/style/Fill";
 import { register } from "ol/proj/proj4";
 import { fromLonLat } from "ol/proj";
 import proj4 from "proj4";
-// import "./style.css";
+import "./style.css";
 
 class MapComponent extends Component {
   constructor(props) {
@@ -81,33 +81,33 @@ class MapComponent extends Component {
     // this.olmap.addControl(this.layerSwitcher);
   }
 
-//   componentDidMount() {
-//     this.olmap.setTarget("map");
-//     let highlightStyle = new Style({
-//       fill: new Fill({
-//         color: "rgba(255,255,255,0.7)",
-//       }),
-//       stroke: new Stroke({
-//         color: "#f40c80",
-//         width: 3,
-//       }),
-//     });
-//   }
+  componentDidMount() {
+    this.olmap.setTarget("map");
+    let highlightStyle = new Style({
+      fill: new Fill({
+        color: "rgba(255,255,255,0.7)",
+      }),
+      stroke: new Stroke({
+        color: "#f40c80",
+        width: 3,
+      }),
+    });
+  }
 
-//   handleClick = (e) => {
-//     navigator.geolocation.getCurrentPosition(locationSuccess);
+  handleClick = (e) => {
+    navigator.geolocation.getCurrentPosition(locationSuccess);
 
-//     const locationSuccess = (position) => {
-//       let lat = position.coords.latitude;
-//       let long = position.coords.longitude;
-//       let coordinates = [long, lat];
+    const locationSuccess = (position) => {
+      let lat = position.coords.latitude;
+      let long = position.coords.longitude;
+      let coordinates = [long, lat];
 
-//       console.log(fromLonLat(coordinates));
-//       let curLocation = fromLonLat(coordinates);
-//       this.setState({ center: curLocation });
-//     };
-//     // this.setState({center: curLocation })
-//   };
+      console.log(fromLonLat(coordinates));
+      let curLocation = fromLonLat(coordinates);
+      this.setState({ center: curLocation });
+    };
+    // this.setState({center: curLocation })
+  };
 
   shouldComponentUpdate(nextProps, nextState) {
     let center = this.olmap.getView().getCenter();
@@ -137,7 +137,7 @@ class MapComponent extends Component {
           id="map"
           style={{
             width: "100%",
-            height: "85%",
+            height: "97%",
             position: "absolute",
             // marginBottom: "20%",
             // top:"12%"
